@@ -18,7 +18,7 @@ class User(object):
 
     def save_user(self):
         """
-        A method that saves a new user instace into the user list
+        A method that saves a new user instance into the user list
         """
         User.user_list.append(self)
     
@@ -32,3 +32,11 @@ class User(object):
         delete_account method deletes a  saved account from the list
         '''
         User.user_list.remove(self)
+
+
+class Credentials(object):
+    """
+    Create credentials class to help create new objects of credentials
+    """
+    credentials_list = []
+   
