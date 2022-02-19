@@ -2,6 +2,7 @@ import random
 import string
 import pyperclip
 
+
 class User(object):
     """
     Create User class that generates new instances of a user.
@@ -21,7 +22,6 @@ class User(object):
         A method that saves a new user instance into the user list
         """
         User.user_list.append(self)
-    
 
     @classmethod
     def display_user(cls):
@@ -39,15 +39,16 @@ class Credentials(object):
     Create credentials class to help create new objects of credentials
     """
     credentials_list = []
+
     @classmethod
-    def verify_user(cls,username, password):
+    def verify_user(cls, username, password):
         """
         method to verify whether the user is in our user_list or not
         """
         at_user = ""
         for user in User.user_list:
             if(user.username == username and user.password == password):
-                    at_user == user.username
+                at_user == user.username
         return at_user
 
     def __init__(self, account, userName, password):
@@ -69,3 +70,15 @@ class Credentials(object):
         delete_credentials method that deletes an account credentials from the credentials_list
         """
         Credentials.credentials_list.remove(self)
+        
+    @classmethod
+    def find_credential(cls, account):
+        """
+        Method that takes in a account_name and returns a credential that matches that account_name.
+
+        """
+        for credential in cls.credentials_list:
+            if credential.account == account:
+                return credential
+     
+
