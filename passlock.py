@@ -70,7 +70,7 @@ class Credentials(object):
         delete_credentials method that deletes an account credentials from the credentials_list
         """
         Credentials.credentials_list.remove(self)
-        
+
     @classmethod
     def find_credential(cls, account):
         """
@@ -81,4 +81,17 @@ class Credentials(object):
             if credential.account == account:
                 return credential
      
+    @classmethod
+    def copy_password(cls, account):
+        found_credentials = Credentials.find_credential(account)
+        pyperclip.copy(found_credentials.password)
 
+    @classmethod
+    def if_credential_exist(cls, account):
+        """
+        Method that checks if a credential exists from the credential list and returns a boolean value depending if the credential exists.
+        """
+        for credential in cls.credentials_list:
+            if credential.account == account:
+                return True
+        return False 
