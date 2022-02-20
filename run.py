@@ -48,5 +48,29 @@ def save_credentials(credentials):
     """
     credentials. save_details()
 
+def display_accounts_details():
+    """
+    Function that returns all the saved credential.
+    """
+    return Credentials.display_credentials()
+
+
+def delete_credential(credentials):
+    """
+    Function that deletes  Credentials from credentials list
+
+    """
+    credentials.delete_credentials()
+
+
+def find_credential(account):
+    """
+    Function that finds a Credentials by an account name and returns the Credentials of the same account
+    """
+    return Credentials.find_credential(account)
+
+
+
+
 
 
