@@ -1,6 +1,7 @@
 #!/usr/bin/env python3.8
 from passlock import User
 from passlock import Credentials
+import pyperclip
 
 
 def create_new_user(username, password):
@@ -88,10 +89,40 @@ def generate_Password():
 def copy_password(account):
 
     """
-    A funct that copies the password using the pyperclip framework module
+    A function that copies the password using the pyperclip framework module
     Which is imported to declare a function that copies the emails.
     """
     return Credentials.copy_password(account)
+
+def passwordlocker():
+    print("Hi Welcome to your Accounts Password Store...\n Please enter one of the following to continue.\n ca ---  Create a New Account  \n ha ---  Have An Account  \n")
+    short_code = input("").lower().strip()
+    if short_code == "ca":
+        print("Sign Up")
+        print('*' * 60)
+        username = input("User_name: ")
+        while True:
+            print(" tp - To type your own pasword:\n gp - To generate your random Password")
+            password_Choice = input().lower().strip()
+            if password_Choice == 'tp':
+                password = input("Enter Password\n")
+                break
+            elif password_Choice == 'gp':
+                password = generate_Password()
+                break
+            else:
+                print("Invalid password please try again")
+        save_user(create_new_user(username, password))
+        print("*"*90)
+        print(
+            f"Dear {username}, Your account has been created succesfully! Your password is: {password}")
+        print("*"*90)
+    
+
+
+if __name__ == '__main__':
+    passwordlocker()
+   
 
    
 
