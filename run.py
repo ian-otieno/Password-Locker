@@ -128,7 +128,38 @@ def passwordlocker():
         if login_user == login:
             print(f"Dear {username}.Welcome To  your PassWord Locker Manager")
             print('\n')
-   
+
+    while True:
+        print("Use these short codes:\n cc - Create a new credential \n dc - Display Credentials \n fc - Find a credential \n gp - Generate A randomn password \n del - Delete credential \n ex- Exit the application \n")
+        short_code = input().lower().strip()
+        if short_code == "cc":
+            print("Create New Credential")
+            print("."*30)
+            print("Account name ....")
+            account = input().lower()
+            print("Your Account username")
+            userName = input()
+
+            while True:
+                print(
+                    " tp - Type your own pasword if you have an existing account:\n gp - To  generate your random Password")
+                password_Choice = input().lower().strip()
+                if password_Choice == 'tp':
+                    password = input("Enter Your Own Password\n")
+                    break
+                elif password_Choice == 'gp':
+                    password = generate_Password()
+                    break
+                else:
+                    print("Invalid password please try again")
+            save_credentials(create_new_credential(
+            	account, userName, password))
+            print('\n')
+            print(
+            	f"Account Credential for: {account} - UserName: {userName} - Password:{password} created succesfully")
+            print('\n')
+
+    
 
 if __name__ == '__main__':
     passwordlocker()
