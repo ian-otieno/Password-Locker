@@ -95,7 +95,7 @@ def copy_password(account):
     return Credentials.copy_password(account)
 
 def passwordlocker():
-    print("Hi Welcome to your Accounts Password Store...\n Please enter one of the following to continue.\n ca ---  Create a New Account  \n ha ---  Have An Account  \n")
+    print("Hi, Welcome to your Accounts Password Store...\n Please enter one of the following to continue.\n ca ---  Create a New Account  \n ha ---  Have An Account  \n")
     short_code = input("").lower().strip()
     if short_code == "ca":
         print("Sign Up")
