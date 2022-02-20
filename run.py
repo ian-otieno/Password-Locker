@@ -117,8 +117,18 @@ def passwordlocker():
         print(
             f"Dear {username}, Your account has been created succesfully! Your password is: {password}")
         print("*"*90)
-    
 
+    elif short_code == "ha":
+        print("*"*60)
+        print("Enter your User name and your Password to log in:")
+        print('*' * 60)
+        username = input("User name: ")
+        password = input("password: ")
+        login = login_user(username, password)
+        if login_user == login:
+            print(f"Dear {username}.Welcome To  your PassWord Locker Manager")
+            print('\n')
+   
 
 if __name__ == '__main__':
     passwordlocker()
