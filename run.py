@@ -25,3 +25,28 @@ def display_user():
     return User.display_user()
 
 
+def login_user(username, password):
+    """
+    function that checks if a user exists and thereafter logs in the user in.
+    """
+
+    check_user = Credentials.verify_user(username, password)
+    return check_user
+
+
+def create_new_credential(account, userName, password):
+    """
+    Function that creates new credentials for a selected user account
+    """
+    new_credential = Credentials(account, userName, password)
+    return new_credential
+
+
+def save_credentials(credentials):
+    """
+    Function that  saves Credentials to the credentials list
+    """
+    credentials. save_details()
+
+
+
